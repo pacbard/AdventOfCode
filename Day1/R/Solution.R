@@ -3,7 +3,7 @@ calculateFuelRequirement <- function(mass) {
   return(sum(floor(mass / 3) - 2))
 }
 
-modulesMass <- scan("input.txt")
+modulesMass <- scan("../input.txt")
 
 total <- calculateFuelRequirement(modulesMass)
 

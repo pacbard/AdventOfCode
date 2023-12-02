@@ -13,7 +13,7 @@ download day:
     #!/usr/bin/env bash
     set -euxo pipefail
     cd day{{day}}
-    aoc download --day {{day}}
+    aoc download --overwrite --day {{day}}
 
 solve day:
     duckdb < {{day}}/{{day}}.sql

@@ -6,5 +6,5 @@ select
 				right(regexp_replace(column0, '[^0-9]+$', ''), 1)
 			) 
 		AS INT)
-	)
-from 'data/day1.csv';
+	) AS solution
+from 'day1/day1.csv';

@@ -12,6 +12,7 @@ submit day solution:
 download day:
     #!/usr/bin/env bash
     set -euxo pipefail
+    mkdir -p day{{day}}
     cd day{{day}}
     aoc download --overwrite --year 2023 --day {{day}}
 

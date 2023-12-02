@@ -1,3 +1,19 @@
+set dotenv-load
+
+calendar:
+    aoc calendar
+
+read:
+    aoc read
+
+submit day solution:
+    aoc submit {{day}} {{solution}}
+
+download day:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    cd {{day}}
+    aoc download
 
 solve day:
     duckdb < {{day}}/{{day}}.sql

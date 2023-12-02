@@ -1,19 +1,19 @@
 set dotenv-load
 
 calendar:
-    aoc calendar
+    aoc calendar --year 2023
 
 read:
-    aoc read
+    aoc read --year 2023
 
 submit day solution:
-    aoc submit {{day}} {{solution}}
+    aoc submit --year 2023 --day {{day}} {{solution}}
 
 download day:
     #!/usr/bin/env bash
     set -euxo pipefail
     cd day{{day}}
-    aoc download --overwrite --day {{day}}
+    aoc download --overwrite --year 2023 --day {{day}}
 
 solve day:
     duckdb < {{day}}/{{day}}.sql

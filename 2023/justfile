@@ -1,0 +1,3 @@
+
+solve day:
+    duckdb < {{day}}.sql

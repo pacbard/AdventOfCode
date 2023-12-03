@@ -1,3 +1,5 @@
+.maxrows -1
+
 WITH
 import AS (
 	SELECT 
@@ -56,14 +58,14 @@ symbol_location AS (
 	SELECT DISTINCT
 		symbol.row AS row,
 		(symbol.loc % 10) AS loc,
-		symbol.symbol
+		symbol.symbol AS symbol
 	FROM 
 		symbol
 	WHERE 
 		symbol.symbol NOT IN ('.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
 ),
 list AS (
-	SELECT 
+	SELECT
 		number_location.row,
 		number_location.loc_start,
 		number_location.loc_end,
@@ -83,7 +85,7 @@ list AS (
 		number_location.number
 	FROM number_location
 	JOIN symbol_location 
-		ON symbol_location.row - 1 = number_location.row
+		ON symbol_location.row = number_location.row + 1
 		AND
 		symbol_location.loc BETWEEN number_location.loc_start AND number_location.loc_end
 
@@ -96,7 +98,7 @@ list AS (
 		number_location.number
 	FROM number_location
 	JOIN symbol_location 
-		ON symbol_location.row + 1 = number_location.row
+		ON symbol_location.row = number_location.row - 1
 		AND
 		symbol_location.loc BETWEEN number_location.loc_start AND number_location.loc_end
 )

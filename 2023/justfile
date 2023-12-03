@@ -16,5 +16,8 @@ download day:
     cd day{{day}}
     aoc download --overwrite --year 2023 --day {{day}}
 
+test day:
+    duckdb < {{day}}/test.sql
+
 solve day:
     duckdb < {{day}}/{{day}}.sql

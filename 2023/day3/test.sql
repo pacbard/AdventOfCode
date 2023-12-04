@@ -271,7 +271,7 @@ list AS (
 		AND
 		symbol_location.symbol = '*'
 ),
-possible_gears AS (
+possible_gears AS MATERIALIZED (
 	SELECT 
 		symbol,
 		row,
@@ -297,9 +297,7 @@ SELECT
 		AND 
 		possible_gears.loc = possible_gears2.loc
 		AND
-		possible_gears2.num = 2
-		AND
-		possible_gears.number <> possible_gears2.number
+		possible_gears.num = 1 AND possible_gears2.num = 2
 )
 
 SELECT 
